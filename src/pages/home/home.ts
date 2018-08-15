@@ -21,6 +21,7 @@ export class HomePage {
   onSearch = (input: string) => {
     this.searchItem = input || 'undefined';
     this.scrollIndex = 1;
+    this.photos = [];
 
     this.getNewItems((res: SearchGet) => {
       this.photos = res.photos.photo.map(this.mapEntityToPhoto);
