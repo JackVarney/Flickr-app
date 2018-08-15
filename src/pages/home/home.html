@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-searchbar (ionInput)="onSearch($event.target.value)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <span *ngIf="!photos">Search to display images</span>
+
+  <ion-list>
+    <ion-item *ngFor="let photo of photos">
+      <!-- <ion-img style="width: 280px; height: 200px;" [src]="photo.imageUrl"> </ion-img> -->
+      <img class="image" [src]="photo.imageUrl"> </img>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="90%">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
