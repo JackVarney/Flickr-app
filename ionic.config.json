@@ -1,0 +1,7 @@
+{
+  "name": "flickr-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
